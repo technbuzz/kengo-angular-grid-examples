@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MultiSelectModule } from '@progress/kendo-angular-dropdowns';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { MatRadioModule } from "@angular/material/radio";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatInputModule } from "@angular/material/input";
     FormsModule,
     MultiSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

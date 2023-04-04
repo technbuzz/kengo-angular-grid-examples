@@ -25,16 +25,20 @@
                     let-filter="filter"
                     let-filterService="filterService"
                     >
-                    <kendo-multiselect
-                        style="width: 220px"
-                        [data]="categories"
-                        textField="CategoryName"
-                        valueField="CategoryID"
-                        [valuePrimitive]="true"
-                        [value]="filter | filterValues"
-                        (valueChange)="categoryChange($event, filterService)"
-                        >
-                    </kendo-multiselect>
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="viewFilter.category" (change)="catChange($event, filterService)" >
+                      <p> <mat-radio-button value="1">Beverages</mat-radio-button> </p>
+                      <p><mat-radio-button value="2">Condiments</mat-radio-button></p>
+                    </mat-radio-group>
+                    <!-- <kendo-multiselect -->
+                    <!--     style="width: 220px" -->
+                    <!--     [data]="categories" -->
+                    <!--     textField="CategoryName" -->
+                    <!--     valueField="CategoryID" -->
+                    <!--     [valuePrimitive]="true" -->
+                    <!--     [value]="filter | filterValues" -->
+                    <!--     (valueChange)="categoryChange($event, filterService)" -->
+                    <!--     > -->
+                    <!-- </kendo-multiselect> -->
                 </ng-template>
                 <ng-template kendoGridCellTemplate let-dataItem>
                     {{dataItem.Category?.CategoryName}}
