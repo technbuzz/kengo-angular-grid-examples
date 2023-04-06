@@ -9,7 +9,7 @@ const flatten = (filter: CompositeFilterDescriptor): FilterDescriptor[] => {
 
     return filters.reduce((result, current) =>
     // @ts-ignore
-        result.concat(isCompositeFilterDescriptor(current) ? flatten(current) : [current]),
+        result.concat(isCompositeFilterDescriptor(current) ? flatten(current) : current),
         []
     );
 };
@@ -19,12 +19,15 @@ const flatten = (filter: CompositeFilterDescriptor): FilterDescriptor[] => {
  */
 @Pipe({
     // eslint-disable-next-line @angular-eslint/pipe-prefix
-    name: 'filterValues'
+    name: 'filterValue'
 })
-export class FilterValuesPipe implements PipeTransform {
-    public transform(filter: CompositeFilterDescriptor): unknown[] {
-    debugger
-        return flatten(filter).map(descriptor => descriptor.value);
+export class FilterValuePipe implements PipeTransform {
 
+  public transform(filter: CompositeFilterDescriptor): unknown {
+    if (!filter.filters.length) {
+      return null
     }
+
+    return (filter.filters as FilterDescriptor[])[0].value
+  }
 }

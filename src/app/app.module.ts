@@ -11,12 +11,14 @@ import { MultiSelectModule } from '@progress/kendo-angular-dropdowns';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatRadioModule } from "@angular/material/radio";
+import { FilterValuePipe } from './filter-value.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilterValuesPipe
+    FilterValuesPipe,
+    FilterValuePipe
   ],
   imports: [
     BrowserModule,
